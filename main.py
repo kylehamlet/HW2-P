@@ -1,42 +1,39 @@
 # Author: kjh6064@psu.edu
 # Kyle Hamlet, solo
 
-def getGradePoint (gradepoint1,gradepoint2,gradepoint3):
-  if gradepoint1 or gradepoint2 or gradepoint3 == "A":
+def getGradePoint (gradepoint):
+  if gradepoint == "A":
     return 4.0
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "A-":
+  elif gradepoint == "A-":
     return 3.67
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "B+":
+  elif gradepoint == "B+":
     return 3.33
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "B":
+  elif gradepoint == "B":
     return 3.0
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "B-":
+  elif gradepoint == "B-":
     return 2.67
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "C+":
+  elif gradepoint == "C+":
     return 2.33
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "C":
+  elif gradepoint == "C":
     return 2.0
-  elif gradepoint1 or gradepoint2 or gradepoint3 == "D":
+  elif gradepoint == "D":
     return 1.0
   else: 
     return 0.0
 
-gradepoint1 = str(input("Enter your course 1 letter grade: "))
-credit1 = float(input("Enter your course 1 credit: "))
-gradepoint1 = getGradePoint(gradepoint1,0,0)
-print(f"Grade point for course 1 is: {gradepoint1}")
+credits = 0
+GPC = 0
+count = 0
+x = 1
+while count != 3:
+  gradepoint = str(input(f"Enter your course {x} letter grade: "))
+  credit = float(input(f"Enter your course {x} credit: "))
+  print(f"Grade point for course {x} is: {getGradePoint(gradepoint)}")
+  gradepoint_calc = getGradePoint(gradepoint)*credit
+  credits += credit
+  GPC += gradepoint_calc
+  x += 1
+  count += 1
 
-gradepoint2 = str(input("Enter your course 2 letter grade: "))
-credit2 = float(input("Enter your course 2 credit: "))
-gradepoint2 = getGradePoint(gradepoint2,0,0)
-print(f"Grade point for course 2 is: {gradepoint2}")
-
-
-gradepoint3 = str(input("Enter your course 3 letter grade: "))
-credit3 = float(input("Enter your course 3 credit: "))
-gradepoint3 = getGradePoint(gradepoint3,0,0)
-print(f"Grade point for course 3 is: {gradepoint3}")
-
-
-GPA = (gradepoint1 * credit1 + gradepoint2 * credit2 + gradepoint3 * credit3) / (credit1 + credit2 + credit3)
+GPA = (GPC/credits)
 print(f"Your GPA is: {GPA}")
