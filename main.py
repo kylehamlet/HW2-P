@@ -28,7 +28,8 @@ x = 1
 while count != 3:
   gradepoint = str(input(f"Enter your course {x} letter grade: "))
   credit = float(input(f"Enter your course {x} credit: "))
-  print(f"Grade point for course {x} is: {getGradePoint(gradepoint)}")
+  test = getGradePoint(gradepoint)
+  print(f"Grade point for course {x} is: {test}")
   gradepoint_calc = getGradePoint(gradepoint)*credit
   credits += credit
   GPC += gradepoint_calc
